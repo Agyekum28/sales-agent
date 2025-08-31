@@ -15,10 +15,13 @@ set_llm_cache(InMemoryCache())
 # Load environment variables from .env file
 load_dotenv()
 # LLM and Search Tool Initialization
-model="llama-3.3-70b-versatile",  # ✅ valid model name
+llm = ChatGroq(
+    model="llama-3.3-70b-versatile",  # ✅ valid model name
     temperature=0.2,                  # ✅ set temp as a separate argument
     max_retries=3,
     timeout=120
+)
+
 
 search_tool = TavilySearch(topic="general", max_results=2)
 
@@ -87,6 +90,7 @@ if st.button("Generate Insights"):
             st.write(insights)
     else:
         st.warning("Please provide at least a Company URL and Company Name.")
+
 
 
 
