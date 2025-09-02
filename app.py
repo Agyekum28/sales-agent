@@ -17,7 +17,7 @@ load_dotenv()
 # LLM and Search Tool Initialization
 llm = ChatGroq(
     model="llama-3.3-70b-versatile",  # ✅ valid model name
-    temperature=0.2,                  # ✅ set temp as a separate argument
+    temperature=0.01,                  # ✅ set temp as a separate argument
     max_retries=3,
     timeout=120
 )
@@ -90,6 +90,7 @@ if st.button("Generate Insights"):
             st.write(insights)
     else:
         st.warning("Please provide at least a Company URL and Company Name.")
+
 
 
 
